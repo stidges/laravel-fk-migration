@@ -1,6 +1,8 @@
 Laravel FK Migration
 ====================
 
+[![Latest Stable Version](https://poser.pugx.org/stidges/laravel-fk-migration/version.png)](https://packagist.org/packages/stidges/laravel-fk-migration) [![Total Downloads](https://poser.pugx.org/stidges/laravel-fk-migration/downloads.png)](https://packagist.org/packages/stidges/laravel-fk-migration) [![Build Status](https://travis-ci.org/stidges/laravel-fk-migration.svg?branch=master)](https://travis-ci.org/stidges/laravel-fk-migration) [![License](https://poser.pugx.org/stidges/laravel-fk-migration/license.png)](https://packagist.org/packages/stidges/laravel-fk-migration)
+
 This [Laravel](http://www.laravel.com) package provides a base migration for you to extend to easily create all your foreign keys. If you ever ran into the problem where you had to reorganize all your migrations due to failing foreign key constraints, this is the package for you!
 
 ## Getting Started
