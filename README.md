@@ -12,7 +12,7 @@ This package can be installed through [Composer](http://www.getcomposer.org), ju
 ```json
 {
     "require": {
-        "stidges/laravel-fk-migration": "1.0.*"
+        "stidges/laravel-fk-migration": "1.*"
     }
 }
 ```
@@ -53,11 +53,11 @@ The `$keys` array is where you can define your foreign keys. It should be an ass
 |:-------------|:------------:|:-------------------------------------------------------------------------|
 | `column`     | *none*       | The column on which to create the foreign key.                           |
 | `references` | `'id'`       | The referenced column in the foreign table.                              |
-| `on`         | *none*       | The referenced table.                                                    |
+| `on`         | *none*       | The referenced table. If this option is not passed then it will create the name from the passed `column` (e.g. `'user_id'` becomes `'users'`)                                                    |
 | `onUpdate`   | `'cascade'`  | The referential action to execute when the referenced column is updated. |
 | `onDelete`   | `'restrict'` | The referential action to execute when the referenced column is deleted. |
 
-**Note:** As a minimum you should specify the `column` and `on` property for each foreign key. If you forget to specify either of these, an exception will be thrown.
+**Note:** As a minimum you should specify the `column` property for each foreign key. If you forget to specify this, an exception will be thrown.
 
 ## Basic Example
 
@@ -71,10 +71,10 @@ use Stidges\LaravelFkMigration\Migration;
 class CreateForeignKeys extends Migration {
 
     protected $keys = [
-        'posts'    => [ 'column' => 'category_id', 'on' => 'categories' ],
+        'posts'    => [ 'column' => 'category_id' ],
         'post_tag' => [
-            [ 'column' => 'post_id', 'on' => 'posts', 'onDelete' => 'cascade' ],
-            [ 'column' => 'tag_id',  'on' => 'tags' ],
+            [ 'column' => 'post_id', 'onDelete' => 'cascade' ],
+            [ 'column' => 'tag_id' ],
         ],
     ];
     
@@ -95,7 +95,7 @@ class CreateForeignKeys extends Migration {
     protected $keys = [];
     
     protected $presets = [
-        'user' => [ 'column' => 'user_id', 'on' => 'users' ],
+        'user' => [ 'column' => 'user_id' ],
     ];
     
     public function getKeys()
