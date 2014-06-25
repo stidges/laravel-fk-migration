@@ -7,10 +7,10 @@ use Stidges\LaravelFkMigration\Migration;
 class MigrationStub extends Migration
 {
     protected $keys = [
-        'table_one' => [ 'column' => 'foo', 'on' => 'bar' ],
+        'table_one' => [ 'column' => 'bar_id' ],
         'table_two' => [
-            [ 'column' => 'bar', 'on' => 'baz' ],
-            [ 'column' => ['baz'], 'on' => 'foo' ]
+            [ 'column' => 'bar_id' ],
+            [ 'column' => ['foo_id', 'bar_id'] ]
         ]
     ];
 }

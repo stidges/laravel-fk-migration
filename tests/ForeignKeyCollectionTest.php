@@ -36,7 +36,7 @@ class ForeignKeyCollectionTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_allows_foreign_keys_to_be_added()
     {
-        $key = new ForeignKey([ 'column' => 'foo', 'on' => 'bar' ]);
+        $key = new ForeignKey([ 'column' => 'bar_id' ]);
 
         $this->assertCount(1, $this->collection->add($key));
         $this->assertCount(2, $this->collection->add($key));

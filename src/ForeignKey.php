@@ -56,6 +56,10 @@ class ForeignKey
                 $this->{$option} = $value;
             }
         }
+
+        if ( ! $this->on) {
+            $this->on = $this->makeTableName($this->column);
+        }
     }
 
     /**
@@ -70,9 +74,18 @@ class ForeignKey
         if (! isset($options['column'])) {
             throw new InvalidArgumentException('Missing required option: column');
         }
+    }
 
-        if (! isset($options['on'])) {
-            throw new InvalidArgumentException('Missing required option: on');
-        }
+    /**
+     * Make a table name from the given column name.
+     *
+     * @param  string  $column
+     * @return string
+     */
+    private function makeTableName($column)
+    {
+        $column = is_array($column) ? current($column) : $column;
+
+        return str_plural(str_replace('_id', '', $column));
     }
 }
