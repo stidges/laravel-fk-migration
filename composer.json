@@ -1,7 +1,7 @@
 {
     "name": "stidges/laravel-fk-migration",
     "description": "Helpful base migration for creating all your foreign key without worrying about the order of your migrations.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "homepage": "https://github.com/stidges/laravel-fk-migration",
     "authors": [
         {
